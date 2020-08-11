@@ -18,6 +18,7 @@ export class EditorCanvasComponent implements OnInit {
   ngOnInit(): void {
     this.initCanvas();
     this.registerListeners();
+    this.addRect();
   }
 
   private initCanvas(): void {
@@ -67,6 +68,24 @@ export class EditorCanvasComponent implements OnInit {
     const verticalOffset = (this.canvasHeight - (this.workGround.height * verticalZoom)) / 2;
 
     this.canvas.viewportTransform = [horizontalZoom, 0, 0, verticalZoom, horizontalOffset, verticalOffset];
+  }
+
+  public addRect(): void {
+    const obj = new fabric.Rect({
+      id: 'Rect',
+      width: 100,
+      height: 100,
+      fill: '#2b3950',
+      noScaleCache: false
+    });
+    this.addToCanvas(obj);
+  }
+
+  private addToCanvas(obj: fabric.Object): void {
+    this.canvas.add(obj);
+    this.canvas.bringToFront(obj);
+    this.canvas.viewportCenterObject(obj);
+    this.canvas.trigger('object:created');
   }
 
 }
