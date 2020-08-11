@@ -16,6 +16,7 @@ export class EditorCanvasComponent implements OnInit {
 
   ngOnInit(): void {
     this.initCanvas();
+    this.registerListeners();
   }
 
   private initCanvas(): void {
@@ -31,5 +32,8 @@ export class EditorCanvasComponent implements OnInit {
     this.canvas.setHeight(this.canvasHeight);
   }
 
+  private registerListeners(): void {
+    window.addEventListener('resize', () => this.resizeCanvas());
+  }
 
 }
