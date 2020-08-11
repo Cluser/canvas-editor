@@ -9,6 +9,8 @@ import { fabric } from 'fabric';
 export class EditorCanvasComponent implements OnInit {
 
   private canvas: fabric.Canvas;
+  private canvasWidth: number;
+  private canvasHeight: number;
 
   constructor() { }
 
@@ -18,6 +20,16 @@ export class EditorCanvasComponent implements OnInit {
 
   private initCanvas(): void {
     this.canvas = new fabric.Canvas('canvas', { preserveObjectStacking: true });
+    this.resizeCanvas();
   }
+
+  private resizeCanvas(): void {
+    const canvasParent = document.getElementById('editor-canvas-section');
+    this.canvasWidth = canvasParent.offsetWidth;
+    this.canvasHeight = canvasParent.offsetHeight;
+    this.canvas.setWidth(this.canvasWidth);
+    this.canvas.setHeight(this.canvasHeight);
+  }
+
 
 }
