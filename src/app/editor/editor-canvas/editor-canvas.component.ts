@@ -14,6 +14,7 @@ export class EditorCanvasComponent implements OnInit {
   private canvasWidth: number;
   private canvasHeight: number;
   private workGround: fabric.Rect;
+  private clipboard: fabric.Object;
 
   constructor() { }
 
@@ -126,6 +127,41 @@ export class EditorCanvasComponent implements OnInit {
         object.setCoords();
       });
       this.canvas.renderAll();
+    }
+  }
+
+  public copyObjects(): void {
+    if (this.canvas.getActiveObject() != null) {
+      this.canvas.getActiveObject().clone(clonedObject => {
+        this.clipboard = clonedObject;
+      });
+    }
+  }
+
+  public pasteObjects(): void {
+    if (this.clipboard != null) {
+      this.clipboard.clone(clonedObject => {
+        this.canvas.discardActiveObject();
+        clonedObject.set({
+          left: clonedObject.left + 10,
+          top: clonedObject.top + 10,
+          evented: true,
+        });
+        if (clonedObject.type === 'activeSelection') {
+          clonedObject.canvas = this.canvas;
+          clonedObject.forEachObject(object => {
+            this.canvas.add(object);
+          });
+          clonedObject.setCoords();
+        } else {
+          this.canvas.add(clonedObject);
+        }
+        this.clipboard.top += 10;
+        this.clipboard.left += 10;
+        this.canvas.setActiveObject(clonedObject);
+        this.canvas.requestRenderAll();
+        this.canvas.trigger('object:paste');
+      });
     }
   }
 

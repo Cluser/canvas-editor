@@ -39,6 +39,18 @@ export class EditorComponent implements OnInit {
           break;
       }
     }
+
+    if ($event.ctrlKey || $event.metaKey) {
+      $event.preventDefault();
+      switch ($event.key) {
+        case 'c':
+          this.editorCanvasComponent.copyObjects();
+          break;
+        case 'v':
+          this.editorCanvasComponent.pasteObjects();
+          break;
+      }
+    }
   }
 
 }
