@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fabric } from 'fabric';
 import { initZooming, initPanning } from './editor-canvas-custom-functions';
+import { MoveObjectEnum } from './../../shared/enums/move-object-enum';
 
 @Component({
   selector: 'app-editor-canvas',
@@ -99,6 +100,33 @@ export class EditorCanvasComponent implements OnInit {
     this.canvas.getActiveObjects().forEach(object => {
       this.canvas.remove(object);
     });
+  }
+
+
+  public moveObjects(direction: string): void {
+    const step = 1;
+    const activeGroup = this.canvas.getActiveObjects();
+
+    if (activeGroup) {
+      activeGroup.forEach(object => {
+        switch (direction) {
+          case MoveObjectEnum.left:
+            object.left = object.left - step;
+            break;
+          case MoveObjectEnum.right:
+            object.left = object.left + step;
+            break;
+          case MoveObjectEnum.up:
+            object.top = object.top - step;
+            break;
+          case MoveObjectEnum.down:
+            object.top = object.top + step;
+            break;
+        }
+        object.setCoords();
+      });
+      this.canvas.renderAll();
+    }
   }
 
 }
