@@ -165,4 +165,9 @@ export class EditorCanvasComponent implements OnInit {
     }
   }
 
+  public selectAll(): void {
+    this.canvas.setActiveObject(new fabric.ActiveSelection(this.canvas.getObjects()));
+    this.canvas.requestRenderAll();
+  }
+
 }

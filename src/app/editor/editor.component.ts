@@ -43,6 +43,9 @@ export class EditorComponent implements OnInit {
     if ($event.ctrlKey || $event.metaKey) {
       $event.preventDefault();
       switch ($event.key) {
+        case 'a':
+          this.editorCanvasComponent.selectAll();
+          break;
         case 'c':
           this.editorCanvasComponent.copyObjects();
           break;
