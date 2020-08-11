@@ -95,4 +95,10 @@ export class EditorCanvasComponent implements OnInit {
     this.canvas.trigger('object:created');
   }
 
+  public deleteObjects(): void {
+    this.canvas.getActiveObjects().forEach(object => {
+      this.canvas.remove(object);
+    });
+  }
+
 }
