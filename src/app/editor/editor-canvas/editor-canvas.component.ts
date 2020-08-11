@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fabric } from 'fabric';
+import { initZooming } from './editor-canvas-custom-functions/zooming';
 
 @Component({
   selector: 'app-editor-canvas',
@@ -18,6 +19,7 @@ export class EditorCanvasComponent implements OnInit {
   ngOnInit(): void {
     this.initCanvas();
     this.registerListeners();
+    this.initCustomFunctions();
     this.addRect();
   }
 
@@ -38,6 +40,10 @@ export class EditorCanvasComponent implements OnInit {
 
   private registerListeners(): void {
     window.addEventListener('resize', () => this.resizeCanvas());
+  }
+
+  private initCustomFunctions(): void {
+    initZooming(this.canvas);
   }
 
   private prepareWorkGround(): void {
