@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fabric } from 'fabric';
-import { initZooming } from './editor-canvas-custom-functions/zooming';
+import { initZooming, initPanning } from './editor-canvas-custom-functions';
 
 @Component({
   selector: 'app-editor-canvas',
@@ -44,6 +44,7 @@ export class EditorCanvasComponent implements OnInit {
 
   private initCustomFunctions(): void {
     initZooming(this.canvas);
+    initPanning(this.canvas);
   }
 
   private prepareWorkGround(): void {
