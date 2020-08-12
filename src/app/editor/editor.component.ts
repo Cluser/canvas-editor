@@ -18,6 +18,8 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  // Hotkeys handling
   @HostListener('window:keydown', ['$event'])
   private onKeyPress($event: KeyboardEvent): void {
     if (!($event.shiftKey || $event.metaKey)) {
