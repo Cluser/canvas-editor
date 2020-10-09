@@ -46,6 +46,7 @@ export class EditorCanvasComponent implements OnInit {
 
     this.editorSharedActionService.addRect.subscribe(() => this.addRect());
     this.editorSharedActionService.addCircle.subscribe(() => this.addCircle());
+    this.editorSharedActionService.addTriangle.subscribe(() => this.addTriangle());
   }
 
   private initCustomFunctions(): void {
@@ -103,6 +104,18 @@ export class EditorCanvasComponent implements OnInit {
     });
     this.addToCanvas(obj);
   }
+
+  public addTriangle(): void {
+    const obj = new fabric.Triangle({
+      id: 'Triangle',
+      width: 100,
+      height: 100,
+      fill: '#2b3950',
+      noScaleCache: false
+    });
+    this.addToCanvas(obj);
+  }
+
 
   private addToCanvas(obj: fabric.Object): void {
     this.canvas.add(obj);
