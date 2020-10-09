@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { fabric } from 'fabric';
 import { initZooming, initPanning } from './editor-canvas-custom-functions';
 import { MoveObjectEnum } from './../../shared/enums/move-object-enum';
+import { EditorSharedActionService } from '../editor-shared/editor-shared-action.service';
 
 @Component({
   selector: 'app-editor-canvas',
@@ -16,7 +17,7 @@ export class EditorCanvasComponent implements OnInit {
   private workGround: fabric.Rect;
   private clipboard: fabric.Object;
 
-  constructor() { }
+  constructor(private editorSharedActionService: EditorSharedActionService) { }
 
   ngOnInit(): void {
     this.initCanvas();
@@ -42,6 +43,8 @@ export class EditorCanvasComponent implements OnInit {
 
   private registerListeners(): void {
     window.addEventListener('resize', () => this.resizeCanvas());
+
+    this.editorSharedActionService.addRect.subscribe(() => this.addRect());
   }
 
   private initCustomFunctions(): void {

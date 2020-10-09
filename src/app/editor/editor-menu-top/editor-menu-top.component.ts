@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EditorSharedActionService } from './../editor-shared/editor-shared-action.service';
 
 @Component({
   selector: 'app-editor-menu-top',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditorMenuTopComponent implements OnInit {
 
-  constructor() { }
+  constructor(private editorSharedAction: EditorSharedActionService) { }
 
   ngOnInit(): void {
+  }
+
+  public addRect(): void {
+    this.editorSharedAction.addRect.next();
   }
 
 }

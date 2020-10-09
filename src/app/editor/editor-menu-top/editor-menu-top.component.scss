@@ -1,13 +1,18 @@
 @import "./../../shared/styles/global.scss";
 
+.editor-menu-top-section {
+    width: 100%;
+    height: 100%;
+}
+
 .menu {
     background-color: rgba(255, 166, 0);
     opacity: $highOpacity;
     width: 30%;
     height: 100%;
     border-radius: 25px;
-    align-items: center;
-
+    display: flex;
+    justify-content: center;
 }
 
 .button {
@@ -15,6 +20,5 @@
     height: 100%;
     width: 10%;  
     background-color: orangered;
-    display: inline-block;
     cursor: pointer;
 }
