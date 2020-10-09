@@ -48,6 +48,8 @@ export class EditorCanvasComponent implements OnInit {
     this.editorSharedActionService.addCircle.subscribe(() => this.addCircle());
     this.editorSharedActionService.addTriangle.subscribe(() => this.addTriangle());
     this.editorSharedActionService.addLine.subscribe(() => this.addLine());
+    this.editorSharedActionService.addText.subscribe(() => this.addText());
+
 
   }
 
@@ -123,6 +125,20 @@ export class EditorCanvasComponent implements OnInit {
       id: 'Line',
       height: 10,
       stroke: '#2b3950',
+      noScaleCache: false
+    });
+    this.addToCanvas(obj);
+  }
+
+  public addText(): void {
+    const obj = new fabric.Textbox('Example text', {
+      id: 'Text',
+      left: 100,
+      top: 200,
+      width: 200,
+      fontSize: 25,
+      splitByGrapheme: true,
+      lockScalingY: true,
       noScaleCache: false
     });
     this.addToCanvas(obj);

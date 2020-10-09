@@ -10,5 +10,6 @@ export class EditorSharedActionService {
   public addCircle = new Subject<void>();
   public addTriangle = new Subject<void>();
   public addLine = new Subject<void>();
+  public addText = new Subject<void>();
 
 }

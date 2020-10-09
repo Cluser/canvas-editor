@@ -29,4 +29,8 @@ export class EditorMenuTopComponent implements OnInit {
     this.editorSharedAction.addLine.next();
   }
 
+  public addText(): void {
+    this.editorSharedAction.addText.next();
+  }
+
 }
