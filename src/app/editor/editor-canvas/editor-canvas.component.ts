@@ -47,6 +47,8 @@ export class EditorCanvasComponent implements OnInit {
     this.editorSharedActionService.addRect.subscribe(() => this.addRect());
     this.editorSharedActionService.addCircle.subscribe(() => this.addCircle());
     this.editorSharedActionService.addTriangle.subscribe(() => this.addTriangle());
+    this.editorSharedActionService.addLine.subscribe(() => this.addLine());
+
   }
 
   private initCustomFunctions(): void {
@@ -111,6 +113,16 @@ export class EditorCanvasComponent implements OnInit {
       width: 100,
       height: 100,
       fill: '#2b3950',
+      noScaleCache: false
+    });
+    this.addToCanvas(obj);
+  }
+
+  public addLine(): void {
+    const obj = new fabric.Line([50, 100, 200, 100], {
+      id: 'Line',
+      height: 10,
+      stroke: '#2b3950',
       noScaleCache: false
     });
     this.addToCanvas(obj);

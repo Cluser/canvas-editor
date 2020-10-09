@@ -25,4 +25,8 @@ export class EditorMenuTopComponent implements OnInit {
     this.editorSharedAction.addTriangle.next();
   }
 
+  public addLine(): void {
+    this.editorSharedAction.addLine.next();
+  }
+
 }
