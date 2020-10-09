@@ -23,7 +23,6 @@ export class EditorCanvasComponent implements OnInit {
     this.initCanvas();
     this.registerListeners();
     this.initCustomFunctions();
-    this.addRect();
   }
 
   private initCanvas(): void {
