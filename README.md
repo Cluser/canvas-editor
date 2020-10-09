@@ -6,6 +6,7 @@ Canvas editor built on Angular 10 framework and fabric.js library.
 ## What you can find here?
 
 :white_check_mark: Fabric.js handling
+
 :white_check_mark: Subscriptions handling
 
 
