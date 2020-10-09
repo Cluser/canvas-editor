@@ -17,4 +17,8 @@ export class EditorMenuTopComponent implements OnInit {
     this.editorSharedAction.addRect.next();
   }
 
+  public addCircle(): void {
+    this.editorSharedAction.addCircle.next();
+  }
+
 }

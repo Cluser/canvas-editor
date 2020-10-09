@@ -45,6 +45,7 @@ export class EditorCanvasComponent implements OnInit {
     window.addEventListener('resize', () => this.resizeCanvas());
 
     this.editorSharedActionService.addRect.subscribe(() => this.addRect());
+    this.editorSharedActionService.addCircle.subscribe(() => this.addCircle());
   }
 
   private initCustomFunctions(): void {
@@ -87,6 +88,16 @@ export class EditorCanvasComponent implements OnInit {
       id: 'Rect',
       width: 100,
       height: 100,
+      fill: '#2b3950',
+      noScaleCache: false
+    });
+    this.addToCanvas(obj);
+  }
+
+  public addCircle(): void {
+    const obj = new fabric.Circle({
+      id: 'Circle',
+      radius: 100,
       fill: '#2b3950',
       noScaleCache: false
     });
