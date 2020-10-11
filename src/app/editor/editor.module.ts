@@ -5,13 +5,15 @@ import { EditorRoutingModule } from './editor-routing.module';
 import { EditorComponent } from './editor.component';
 import { EditorCanvasComponent } from './editor-canvas/editor-canvas.component';
 import { EditorMenuTopComponent } from './editor-menu-top/editor-menu-top.component';
+import { EditorMenuRightComponent } from './editor-menu-right/editor-menu-right.component';
 
 
 @NgModule({
   declarations: [
     EditorComponent,
     EditorCanvasComponent,
-    EditorMenuTopComponent
+    EditorMenuTopComponent,
+    EditorMenuRightComponent
   ],
   imports: [
     CommonModule,
