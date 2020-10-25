@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { EditorCanvasComponent } from './editor-canvas/editor-canvas.component';
 import { MoveObjectEnum } from './../shared/enums/move-object-enum';
+import { EditorSharedActionService } from './editor-shared/editor-shared-action.service';
 
 
 @Component({
@@ -12,10 +13,22 @@ export class EditorComponent implements OnInit {
 
   @ViewChild(EditorCanvasComponent, {static: false})
   private editorCanvasComponent: EditorCanvasComponent;
+  public hideMenu = true;
 
-  constructor() { }
+  constructor(private editorSharedActionService: EditorSharedActionService) { }
 
   ngOnInit(): void {
+    this.registerListeners();
+  }
+
+  private registerListeners(): void {
+    this.objectSelectionListener();
+  }
+
+  private objectSelectionListener(): void {
+    this.editorSharedActionService.selectObject.subscribe((selection) => {
+      selection ? this.hideMenu = false : this.hideMenu = true;
+    });
   }
 
 

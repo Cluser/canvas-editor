@@ -6,7 +6,7 @@
 }
 
 .menu {
-    background-color: rgba(255, 166, 0);
+    background-color: $menuBgColor;
     opacity: $highOpacity;
     width: 30%;
     height: 100%;
@@ -19,6 +19,6 @@
     border-radius: 50%;
     height: 100%;
     width: 10%;  
-    background-color: orangered;
+    background-color: $menuBgColor;
     cursor: pointer;
 }

@@ -13,6 +13,6 @@ export class EditorSharedActionService {
   public addLine = new Subject<void>();
   public addText = new Subject<void>();
 
-  public selectElement = new Subject<fabric.Object>();
+  public selectObject = new Subject<fabric.Object>();
 
 }

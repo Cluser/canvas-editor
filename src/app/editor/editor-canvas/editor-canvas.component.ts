@@ -45,9 +45,9 @@ export class EditorCanvasComponent implements OnInit {
     window.addEventListener('resize', () => this.resizeCanvas());
 
     // Canvas listeners
-    this.canvas.on('selection:created', (element) => this.editorSharedActionService.selectElement.next(element));
-    this.canvas.on('selection:updated', (element) => this.editorSharedActionService.selectElement.next(element));
-    this.canvas.on('selection:cleared', () => this.editorSharedActionService.selectElement.next());
+    this.canvas.on('selection:created', (selection) => this.editorSharedActionService.selectObject.next(selection));
+    this.canvas.on('selection:updated', (selection) => this.editorSharedActionService.selectObject.next(selection));
+    this.canvas.on('selection:cleared', () => this.editorSharedActionService.selectObject.next());
 
     // Editor shared action service listeners
     this.editorSharedActionService.addRect.subscribe(() => this.addRect());

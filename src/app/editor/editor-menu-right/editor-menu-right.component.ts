@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fabric } from 'fabric';
 import { EditorSharedActionService } from '../editor-shared/editor-shared-action.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { EditorSharedActionService } from '../editor-shared/editor-shared-action
 })
 export class EditorMenuRightComponent implements OnInit {
 
+  public selectedObject: fabric.Object;
+
   constructor(private editorSharedActionService: EditorSharedActionService) { }
 
   ngOnInit(): void {
@@ -15,7 +18,18 @@ export class EditorMenuRightComponent implements OnInit {
   }
 
   private registerListeners(): void {
-    this.editorSharedActionService.selectElement.subscribe((element) => console.log(element));
+    this.objectSelectionListener();
+  }
+
+  private objectSelectionListener(): void {
+    this.editorSharedActionService.selectObject.subscribe((selection) => {
+      if (selection) {
+        this.selectedObject = selection.selected[0];
+        console.log(this.selectedObject);
+      } else {
+        this.selectedObject = null;
+      }
+    });
   }
 
 }
