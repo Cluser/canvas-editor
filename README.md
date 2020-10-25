@@ -3,6 +3,9 @@
 
 Canvas editor built on Angular 10 framework and fabric.js library.
 
+## Demo
+https://stackblitz.com/github/cluser/canvas-editor
+
 ## What you can find here?
 
 :white_check_mark: Adding shapes like sqaure, circle, triangle, line
