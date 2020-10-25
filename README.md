@@ -11,6 +11,8 @@ Canvas editor built on Angular 10 framework and fabric.js library.
 
 :white_check_mark: Zooming and panning
 
+:white_check_mark: Objects edditing
+
 
 
 ## Images
