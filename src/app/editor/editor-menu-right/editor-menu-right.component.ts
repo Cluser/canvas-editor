@@ -22,13 +22,8 @@ export class EditorMenuRightComponent implements OnInit {
   }
 
   private objectSelectionListener(): void {
-    this.editorSharedActionService.selectObject.subscribe((selection) => {
-      if (selection) {
-        this.selectedObject = selection.selected[0];
-        console.log(this.selectedObject);
-      } else {
-        this.selectedObject = null;
-      }
+    this.editorSharedActionService.selectObject.subscribe((selectedObject) => {
+      selectedObject ? this.selectedObject = selectedObject : this.selectedObject = null;
     });
   }
 

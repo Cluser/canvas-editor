@@ -45,8 +45,8 @@ export class EditorCanvasComponent implements OnInit {
     window.addEventListener('resize', () => this.resizeCanvas());
 
     // Canvas listeners
-    this.canvas.on('selection:created', (selection) => this.editorSharedActionService.selectObject.next(selection));
-    this.canvas.on('selection:updated', (selection) => this.editorSharedActionService.selectObject.next(selection));
+    this.canvas.on('selection:created', (selection) => this.editorSharedActionService.selectObject.next(selection.selected[0]));
+    this.canvas.on('selection:updated', (selection) => this.editorSharedActionService.selectObject.next(selection.selected[0]));
     this.canvas.on('selection:cleared', () => this.editorSharedActionService.selectObject.next());
 
     // Editor shared action service listeners
@@ -156,6 +156,7 @@ export class EditorCanvasComponent implements OnInit {
     this.canvas.bringToFront(obj);
     this.canvas.viewportCenterObject(obj);
     this.canvas.trigger('object:created');
+    this.canvas.setActiveObject(obj);
   }
 
   public deleteObjects(): void {
