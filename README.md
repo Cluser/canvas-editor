@@ -4,7 +4,7 @@
 Canvas editor built on Angular 10 framework and fabric.js library.
 
 ## Demo
-https://stackblitz.com/github/cluser/canvas-editor
+https://yqnimnjkq.github.stackblitz.io
 
 ## What you can find here?
 
