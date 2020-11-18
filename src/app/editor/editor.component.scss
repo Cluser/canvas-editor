@@ -1,8 +1,11 @@
 .menu-top-section {
     position: fixed;
-    width: 100%;
+    width: 80%;
     height: 5%;
     z-index: 100;
+    -webkit-box-shadow: -5px 1px 31px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: -5px 1px 31px -1px rgba(0,0,0,0.75);
+    box-shadow: -5px 1px 31px -1px rgba(0,0,0,0.75);
 }
 
 .menu-right-section {
@@ -11,10 +14,13 @@
     height: 100%;
     z-index: 100;
     right: 0%;
+    -webkit-box-shadow: -5px 50px 31px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: -5px 50px 31px -1px rgba(0,0,0,0.75);
+    box-shadow: -5px 50px 31px -1px rgba(0,0,0,0.75);
 }
 
 .editor-section {
     position: fixed;
-    width: 100%;
+    width: 80%;
     height: 100%;
 }

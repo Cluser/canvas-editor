@@ -13,24 +13,11 @@ export class EditorComponent implements OnInit {
 
   @ViewChild(EditorCanvasComponent, {static: false})
   private editorCanvasComponent: EditorCanvasComponent;
-  public hideMenu = true;
 
   constructor(private editorSharedActionService: EditorSharedActionService) { }
 
   ngOnInit(): void {
-    this.registerListeners();
   }
-
-  private registerListeners(): void {
-    this.objectSelectionListener();
-  }
-
-  private objectSelectionListener(): void {
-    this.editorSharedActionService.selectObject.subscribe((selection) => {
-      selection ? this.hideMenu = false : this.hideMenu = true;
-    });
-  }
-
 
   // Hotkeys handling
   @HostListener('window:keydown', ['$event'])

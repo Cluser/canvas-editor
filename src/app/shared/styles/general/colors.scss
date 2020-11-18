@@ -14,7 +14,10 @@ $neutralTheLightest: #e9e9e9;
 $neutralDarkMediumHover: #a3a3a3;
 
 // Primmary colors
-$primary: #fe346e;
+$primary: #2b2f46;
+
+// Secondary colors
+$secondary: #462b42;
 
 // Accent colors
 $accentGood: #40c42f;
@@ -40,4 +43,4 @@ $highOpacity: 0.7;
 
 
 // Menu colors
-$menuBgColor: $neutralDarkMedium;
+$menuBgColor: $primary;
