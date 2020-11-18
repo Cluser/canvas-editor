@@ -27,4 +27,9 @@ export class EditorMenuRightComponent implements OnInit {
     });
   }
 
+  private changeProperty(property: any, value: any): void {
+    this.selectedObject.set(property, value);
+    this.editorSharedActionService.renderCanvas.next();
+  }
+
 }

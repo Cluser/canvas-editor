@@ -55,7 +55,7 @@ export class EditorCanvasComponent implements OnInit {
     this.editorSharedActionService.addTriangle.subscribe(() => this.addTriangle());
     this.editorSharedActionService.addLine.subscribe(() => this.addLine());
     this.editorSharedActionService.addText.subscribe(() => this.addText());
-
+    this.editorSharedActionService.renderCanvas.subscribe(() => this.renderCanvas());
 
   }
 
@@ -92,6 +92,10 @@ export class EditorCanvasComponent implements OnInit {
     const verticalOffset = (this.canvasHeight - (this.workGround.height * verticalZoom)) / 2;
 
     this.canvas.viewportTransform = [horizontalZoom, 0, 0, verticalZoom, horizontalOffset, verticalOffset];
+  }
+
+  public renderCanvas(): void {
+    this.canvas.renderAll();
   }
 
   public addRect(): void {
