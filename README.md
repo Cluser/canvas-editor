@@ -14,6 +14,8 @@ https://yqnimnjkq.github.stackblitz.io
 
 :white_check_mark: Zooming and panning
 
+:white_check_mark: Copying / cutting / pasting
+
 :white_check_mark: Objects editing
 
 
