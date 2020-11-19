@@ -19,7 +19,7 @@ https://yqnimnjkq.github.stackblitz.io
 
 
 ## Images
-![alt text](https://ibb.co/TY2GBch)
+![alt text](https://i.ibb.co/8NswDM8/edytor.jpg)
 
 
 ## Launching of project
