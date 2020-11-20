@@ -19,6 +19,14 @@
     box-shadow: -5px 50px 31px -1px rgba(0,0,0,0.75);
 }
 
+.menu-bottom-section {
+    position: fixed;
+    width: 20%;
+    height: 5%;
+    z-index: 100;
+    bottom: 0%;
+}
+
 .editor-section {
     position: fixed;
     width: 80%;

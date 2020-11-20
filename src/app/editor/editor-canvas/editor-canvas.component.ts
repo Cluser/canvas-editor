@@ -49,6 +49,8 @@ export class EditorCanvasComponent implements OnInit {
     this.canvas.on('selection:updated', (selection) => this.editorSharedActionService.selectObject.next(selection.selected[0]));
     this.canvas.on('selection:cleared', () => this.editorSharedActionService.selectObject.next());
 
+    this.canvas.on('object:scaling', (object) => this.scaleObject(object));
+
     // Editor shared action service listeners
     this.editorSharedActionService.addRect.subscribe(() => this.addRect());
     this.editorSharedActionService.addCircle.subscribe(() => this.addCircle());
@@ -83,6 +85,20 @@ export class EditorCanvasComponent implements OnInit {
     if (heightHigher && !widthHigher) {
       this.canvas.setZoom((this.canvasHeight / this.workGround.height) - 0.05);
     }
+  }
+
+  private scaleObject(object): void {
+    const target = object.target;
+    if (!target || target.type !== 'rect') {
+        return;
+    }
+    const sX = target.scaleX;
+    const sY = target.scaleY;
+    target.width *= sX;
+    target.height *= sY;
+    target.scaleX = 1;
+    target.scaleY = 1;
+    target.dirty = true;
   }
 
   private setViewportCenter(): void {
