@@ -51,6 +51,9 @@ export class EditorComponent implements OnInit {
         case 'c':
           this.editorCanvasComponent.copyObjects();
           break;
+        case 'x':
+          this.editorCanvasComponent.cutObjects();
+          break;
         case 'v':
           this.editorCanvasComponent.pasteObjects();
           break;

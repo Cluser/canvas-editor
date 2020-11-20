@@ -220,6 +220,15 @@ export class EditorCanvasComponent implements OnInit {
     }
   }
 
+  public cutObjects(): void {
+    if (this.canvas.getActiveObject() != null) {
+      this.canvas.getActiveObject().clone(clonedObject => {
+        this.clipboard = clonedObject;
+      });
+      this.deleteObjects();
+    }
+  }
+
   public pasteObjects(): void {
     if (this.clipboard != null) {
       this.clipboard.clone(clonedObject => {
