@@ -14,6 +14,7 @@ export class EditorSharedActionService {
   public addText = new Subject<void>();
 
   public renderCanvas = new Subject<void>();
+  public clearCanvas = new Subject<void>();
 
   public selectObject = new Subject<fabric.Object>();
 

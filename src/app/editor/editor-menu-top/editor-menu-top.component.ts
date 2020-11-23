@@ -13,4 +13,8 @@ export class EditorMenuTopComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public clearCanvas(): void {
+    this.editorSharedAction.clearCanvas.next();
+  }
+
 }

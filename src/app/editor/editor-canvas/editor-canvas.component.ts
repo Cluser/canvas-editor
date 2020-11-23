@@ -58,6 +58,7 @@ export class EditorCanvasComponent implements OnInit {
     this.editorSharedActionService.addLine.subscribe(() => this.addLine());
     this.editorSharedActionService.addText.subscribe(() => this.addText());
     this.editorSharedActionService.renderCanvas.subscribe(() => this.renderCanvas());
+    this.editorSharedActionService.clearCanvas.subscribe(() => this.clearCanvas());
 
   }
 
@@ -259,7 +260,8 @@ export class EditorCanvasComponent implements OnInit {
   public selectAll(): void {
     this.canvas.setActiveObject(new fabric.ActiveSelection(this.canvas.getObjects()));
     this.canvas.requestRenderAll();
-    this.export();
+    // this.export();
+    this.clearCanvas();
   }
 
   public export(): void {
@@ -269,6 +271,11 @@ export class EditorCanvasComponent implements OnInit {
     this.canvas = savedCanvas;
     this.canvas.renderAll();
     this.canvas.toDataURL('image/png');
+  }
+
+  public clearCanvas(): void {
+    this.canvas.clear();
+    this.prepareWorkGround();
   }
 
 }
