@@ -259,6 +259,16 @@ export class EditorCanvasComponent implements OnInit {
   public selectAll(): void {
     this.canvas.setActiveObject(new fabric.ActiveSelection(this.canvas.getObjects()));
     this.canvas.requestRenderAll();
+    this.export();
+  }
+
+  public export(): void {
+    this.canvas.viewportTransform = [2, 0, 0, 2, 0, 0];
+    const savedCanvas = this.canvas;
+    // this.canvas.viewportTransform = [1, 0, 0, 1, 250, 250];
+    this.canvas = savedCanvas;
+    this.canvas.renderAll();
+    this.canvas.toDataURL('image/png');
   }
 
 }
