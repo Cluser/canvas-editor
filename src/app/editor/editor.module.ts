@@ -9,6 +9,7 @@ import { EditorComponent } from './editor.component';
 import { EditorCanvasComponent } from './editor-canvas/editor-canvas.component';
 import { EditorMenuTopComponent } from './editor-menu-top/editor-menu-top.component';
 import { EditorMenuRightComponent } from './editor-menu-right/editor-menu-right.component';
+import { EditorMenuLeftComponent } from './editor-menu-left/editor-menu-left.component';
 
 
 
@@ -17,7 +18,8 @@ import { EditorMenuRightComponent } from './editor-menu-right/editor-menu-right.
     EditorComponent,
     EditorCanvasComponent,
     EditorMenuTopComponent,
-    EditorMenuRightComponent
+    EditorMenuRightComponent,
+    EditorMenuLeftComponent
   ],
   imports: [
     CommonModule,
