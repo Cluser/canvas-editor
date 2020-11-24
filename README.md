@@ -21,7 +21,7 @@ https://yqnimnjkq.github.stackblitz.io
 
 
 ## Images
-![alt text](https://i.ibb.co/8NswDM8/edytor.jpg)
+![alt text](https://i.ibb.co/996VcGX/editor.jpg)
 
 
 ## Launching of project
