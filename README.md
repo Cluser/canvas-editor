@@ -18,6 +18,8 @@ https://yqnimnjkq.github.stackblitz.io
 
 :white_check_mark: Objects editing
 
+:white_check_mark: Image exporting
+
 
 
 ## Images
