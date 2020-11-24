@@ -3,6 +3,7 @@ import { fabric } from 'fabric';
 import { initZooming, initPanning } from './editor-canvas-custom-functions';
 import { MoveObjectEnum } from './../../shared/enums/move-object-enum';
 import { EditorSharedActionService } from '../editor-shared/editor-shared-action.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-editor-canvas',
@@ -59,7 +60,7 @@ export class EditorCanvasComponent implements OnInit {
     this.editorSharedActionService.addText.subscribe(() => this.addText());
     this.editorSharedActionService.renderCanvas.subscribe(() => this.renderCanvas());
     this.editorSharedActionService.clearCanvas.subscribe(() => this.clearCanvas());
-
+    this.editorSharedActionService.saveCanvas.subscribe(() => this.saveCanvas());
   }
 
   private initCustomFunctions(): void {
@@ -260,17 +261,15 @@ export class EditorCanvasComponent implements OnInit {
   public selectAll(): void {
     this.canvas.setActiveObject(new fabric.ActiveSelection(this.canvas.getObjects()));
     this.canvas.requestRenderAll();
-    // this.export();
-    this.clearCanvas();
   }
 
-  public export(): void {
-    this.canvas.viewportTransform = [2, 0, 0, 2, 0, 0];
+  public saveCanvas(): void {
     const savedCanvas = this.canvas;
-    // this.canvas.viewportTransform = [1, 0, 0, 1, 250, 250];
-    this.canvas = savedCanvas;
-    this.canvas.renderAll();
-    this.canvas.toDataURL('image/png');
+    savedCanvas.viewportTransform = [2, 0, 0, 2, 0, 0];
+    savedCanvas.getElement().toBlob((blob) => {
+      saveAs(blob, 'canvas.jpg');
+    });
+
   }
 
   public clearCanvas(): void {

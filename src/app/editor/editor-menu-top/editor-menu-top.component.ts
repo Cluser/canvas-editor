@@ -17,4 +17,8 @@ export class EditorMenuTopComponent implements OnInit {
     this.editorSharedAction.clearCanvas.next();
   }
 
+  public saveCanvas(): void {
+    this.editorSharedAction.saveCanvas.next();
+  }
+
 }
