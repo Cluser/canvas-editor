@@ -3,6 +3,7 @@ import { EditorSharedActionService } from './../editor-shared/editor-shared-acti
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { NewImageModalComponent } from 'src/app/shared/modals/new-image-modal/new-image-modal.component';
+import { SaveImageModalComponent } from 'src/app/shared/modals/save-image-modal/save-image-modal.component';
 
 @Component({
   selector: 'app-editor-menu-top',
@@ -21,6 +22,11 @@ export class EditorMenuTopComponent implements OnInit {
   public openNewImageModal(): void {
     this.modalRef = this.modalService.show(NewImageModalComponent);
     this.modalRef.content.newImage.subscribe(() => this.clearCanvas());
+  }
+
+  public openSaveImageModal(): void {
+    this.modalRef = this.modalService.show(SaveImageModalComponent);
+    this.modalRef.content.saveImage.subscribe(() => this.saveCanvas());
   }
 
   public clearCanvas(): void {

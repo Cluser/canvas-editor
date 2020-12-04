@@ -1,4 +1,3 @@
-import { NewImageModalComponent } from 'src/app/shared/modals/new-image-modal/new-image-modal.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,8 +9,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NewImageModalComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -21,9 +19,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ModalModule.forRoot()
   ],
   providers: [],
-  entryComponents: [
-    NewImageModalComponent
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

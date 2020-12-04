@@ -13,24 +13,6 @@
     justify-content: left;
 }
 
-// .button {
-//     height: 100%;
-//     width: 5%;  
-//     margin-left: 1%;
-//     margin-right: 1%;
-//     background-color: $menuBgColor;
-//     cursor: pointer;
-//     color: $neutralTheLightest;
-//     display: flex;
-//     justify-content: center; /* align horizontal */
-//     align-items: center; /* align vertical */
-//     font: $regularFont;
-// }
-
 button {
     margin: 3px;
-}
-
-.button:hover {
-    color: $neutralDarkMediumHover;
 }
