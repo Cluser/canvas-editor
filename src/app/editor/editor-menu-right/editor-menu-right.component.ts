@@ -10,6 +10,9 @@ import { EditorSharedActionService } from '../editor-shared/editor-shared-action
 export class EditorMenuRightComponent implements OnInit {
 
   public selectedObject: fabric.Object;
+  public fonts = ['Arial', 'Helvetica', 'Times New Roman', 'Times', 'Courier New',
+  'Courier', 'Verdana', 'Georgia', 'Palatino', 'Garamond',
+  'Bookman', 'Comic Sans MS', 'Trebuchet MS', 'Arial Black', 'Impact'];
 
   constructor(private editorSharedActionService: EditorSharedActionService) { }
 
