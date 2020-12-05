@@ -36,8 +36,8 @@ export class EditorCanvasComponent implements OnInit {
     const canvasParent = document.getElementById('editor-canvas-section');
     this.canvasWidth = canvasParent.offsetWidth;
     this.canvasHeight = canvasParent.offsetHeight;
-    this.canvas.setWidth(this.canvasWidth);
-    this.canvas.setHeight(this.canvasHeight);
+    this.canvas.setWidth(1920);
+    this.canvas.setHeight(1080);
     this.prepareWorkGround();
   }
 
@@ -264,12 +264,12 @@ export class EditorCanvasComponent implements OnInit {
   }
 
   public saveCanvas(): void {
-    const savedCanvas = this.canvas;
-    savedCanvas.viewportTransform = [2, 0, 0, 2, 0, 0];
-    savedCanvas.getElement().toBlob((blob) => {
+    const vpt = this.canvas.viewportTransform;
+    this.canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
+    this.canvas.toCanvasElement().toBlob((blob) => {
       saveAs(blob, 'canvas.jpg');
+      this.canvas.viewportTransform = vpt;
     });
-
   }
 
   public clearCanvas(): void {
