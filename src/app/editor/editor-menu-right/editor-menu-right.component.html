@@ -3,25 +3,7 @@
         <span [ngSwitch]="selectedObject?.type">
             <div *ngSwitchCase="'rect'">
                 <div class="property-group">
-                    <div class="property-group-name">Wygląd</div>
-                    <hr class="solid property-group-name-divider">
-    
-                    <div class="property">
-                        <div class="property-name">Kolor tła</div>
-                        <input class="property-input-color" [colorPicker]="selectedObject.fill"  (colorPickerChange)="changeProperty('fill', $event)" [cpPosition]="'left'" [style.background]="selectedObject.fill"/>
-                    </div>
-                    <div class="property">
-                        <div class="property-name">Kolor obramowania</div>
-                        <input class="property-input-color" [colorPicker]="selectedObject.stroke"  (colorPickerChange)="changeProperty('stroke', $event)" [cpPosition]="'left'" [style.background]="selectedObject.stroke"/>
-                    </div>
-                    <div class="property">
-                        <div class="property-name">Szerokość obramowania</div>
-                        <input class="property-input" type="number" [ngModel]="selectedObject.strokeWidth | number" (ngModelChange)="changeProperty('strokeWidth', $event)">
-                    </div>
-                </div>
-    
-                <div class="property-group">
-                    <div class="property-group-name">Pozycja</div>
+                    <div class="property-group-name">Position</div>
                     <hr class="solid property-group-name-divider">
     
                     <div class="property">
@@ -32,23 +14,49 @@
                         <div class="property-name">Y</div>
                         <input class="property-input" [ngModel]="selectedObject.top | number:'1.3-3'" (ngModelChange)="changeProperty('top', $event)">
                     </div>
-    
                     <div class="property">
-                        <div class="property-name">Wysokość</div>
+                        <div class="property-name">Angle</div>
+                        <input class="property-input" [ngModel]="selectedObject.angle | number:'1.3-3'" (ngModelChange)="changeProperty('angle', $event)">
+                    </div>
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Dimensions</div>
+                    <hr class="solid property-group-name-divider">
+
+                    <div class="property">
+                        <div class="property-name">Height</div>
                         <input class="property-input" [ngModel]="selectedObject.height | number:'1.3-3'" (ngModelChange)="changeProperty('height', $event)">
                     </div>
                     <div class="property">
-                        <div class="property-name">Szerokość</div>
+                        <div class="property-name">Width</div>
                         <input class="property-input" [ngModel]="selectedObject.width | number:'1.3-3'" (ngModelChange)="changeProperty('width', $event)">
+                    </div>
+                    <div class="property">
+                        <div class="property-name">Border</div>
+                        <input class="property-input" type="number" [ngModel]="selectedObject.strokeWidth | number" (ngModelChange)="changeProperty('strokeWidth', $event)">
+                    </div>
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Colors</div>
+                    <hr class="solid property-group-name-divider">
+    
+                    <div class="property">
+                        <div class="property-name">Background</div>
+                        <input class="property-input-color" [colorPicker]="selectedObject.fill"  (colorPickerChange)="changeProperty('fill', $event)" [cpPosition]="'left'" [style.background]="selectedObject.fill"/>
+                    </div>
+                    <div class="property">
+                        <div class="property-name">Border</div>
+                        <input class="property-input-color" [colorPicker]="selectedObject.stroke"  (colorPickerChange)="changeProperty('stroke', $event)" [cpPosition]="'left'" [style.background]="selectedObject.stroke"/>
                     </div>
                 </div>
             </div>
             <div *ngSwitchCase="'circle'">
                 <div class="property-group">
-                    <div class="property">
-                        <div class="property-name">Nazwa</div>
-                        <input class="property-input" type="text" [ngModel]="selectedObject.id" (ngModelChange)="changeProperty('id', $event)">
-                    </div>
+                    <div class="property-group-name">Position</div>
+                    <hr class="solid property-group-name-divider">
+
                     <div class="property">
                         <div class="property-name">X</div>
                         <input class="property-input" [ngModel]="selectedObject.left | number:'1.3-3'" (ngModelChange)="changeProperty('left', $event)">
@@ -58,38 +66,47 @@
                         <input class="property-input" [ngModel]="selectedObject.top | number:'1.3-3'" (ngModelChange)="changeProperty('top', $event)">
                     </div>
                     <div class="property">
-                        <div class="property-name">Promień</div>
-                        <input class="property-input" [ngModel]="selectedObject.radius | number:'1.3-3'" (ngModelChange)="changeProperty('radius', $event)">
-                    </div>
-                    <div class="property">
-                        <div class="property-name">Kąt</div>
+                        <div class="property-name">Angle</div>
                         <input class="property-input" [ngModel]="selectedObject.angle | number:'1.3-3'" (ngModelChange)="changeProperty('angle', $event)">
                     </div>
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Dimensions</div>
+                    <hr class="solid property-group-name-divider">
+
                     <div class="property">
-                        <div class="property-name">rx</div>
-                        <input class="property-input" [ngModel]="selectedObject.rx | number:'1.3-3'" (ngModelChange)="changeProperty('rx', 4)">
+                        <div class="property-name">Radius</div>
+                        <input class="property-input" [ngModel]="selectedObject.radius | number:'1.3-3'" (ngModelChange)="changeProperty('radius', $event)">
                     </div>
+
                     <div class="property">
-                        <div class="property-name">Kolor tła</div>
+                        <div class="property-name">Border</div>
+                        <input class="property-input" type="number" [ngModel]="selectedObject.strokeWidth" (ngModelChange)="changeProperty('strokeWidth', $event)">
+                    </div>
+
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Colors</div>
+                    <hr class="solid property-group-name-divider">
+
+                    <div class="property">
+                        <div class="property-name">Background</div>
                         <input class="property-input-color" [colorPicker]="selectedObject.fill"  (colorPickerChange)="changeProperty('fill', $event)" [cpPosition]="'left'" [style.background]="selectedObject.fill"/>
                     </div>
                     <div class="property">
-                        <div class="property-name">Kolor obramowania</div>
+                        <div class="property-name">Border</div>
                         <input class="property-input-color" [colorPicker]="selectedObject.stroke"  (colorPickerChange)="changeProperty('stroke', $event)" [cpPosition]="'left'" [style.background]="selectedObject.stroke"/>
-                    </div>
-                    <div class="property">
-                        <div class="property-name">Szerokość obramowania</div>
-                        <input class="property-input" type="number" [ngModel]="selectedObject.strokeWidth" (ngModelChange)="changeProperty('strokeWidth', $event)">
                     </div>
                 </div>
             </div>
     
             <div *ngSwitchCase="'triangle'">
                 <div class="property-group">
-                    <div class="property">
-                        <div class="property-name">Nazwa</div>
-                        <input class="property-input" type="text" [ngModel]="selectedObject.id" (ngModelChange)="changeProperty('id', $event)">
-                    </div>
+                    <div class="property-group-name">Position</div>
+                    <hr class="solid property-group-name-divider">
+    
                     <div class="property">
                         <div class="property-name">X</div>
                         <input class="property-input" [ngModel]="selectedObject.left | number:'1.3-3'" (ngModelChange)="changeProperty('left', $event)">
@@ -99,42 +116,49 @@
                         <input class="property-input" [ngModel]="selectedObject.top | number:'1.3-3'" (ngModelChange)="changeProperty('top', $event)">
                     </div>
                     <div class="property">
-                        <div class="property-name">Wysokość</div>
+                        <div class="property-name">Angle</div>
+                        <input class="property-input" [ngModel]="selectedObject.angle | number:'1.3-3'" (ngModelChange)="changeProperty('angle', $event)">
+                    </div>
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Dimensions</div>
+                    <hr class="solid property-group-name-divider">
+
+                    <div class="property">
+                        <div class="property-name">Height</div>
                         <input class="property-input" [ngModel]="selectedObject.height | number:'1.3-3'" (ngModelChange)="changeProperty('height', $event)">
                     </div>
                     <div class="property">
-                        <div class="property-name">Szerokość</div>
+                        <div class="property-name">Width</div>
                         <input class="property-input" [ngModel]="selectedObject.width | number:'1.3-3'" (ngModelChange)="changeProperty('width', $event)">
                     </div>
                     <div class="property">
-                        <div class="property-name">Kąt</div>
-                        <input class="property-input" [ngModel]="selectedObject.angle | number:'1.3-3'" (ngModelChange)="changeProperty('angle', $event)">
+                        <div class="property-name">Border</div>
+                        <input class="property-input" type="number" [ngModel]="selectedObject.strokeWidth | number" (ngModelChange)="changeProperty('strokeWidth', $event)">
                     </div>
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Colors</div>
+                    <hr class="solid property-group-name-divider">
+    
                     <div class="property">
-                        <div class="property-name">rx</div>
-                        <input class="property-input" [ngModel]="selectedObject.rx | number:'1.3-3'" (ngModelChange)="changeProperty('rx', 4)">
-                    </div>
-                    <div class="property">
-                        <div class="property-name">Kolor tła</div>
+                        <div class="property-name">Background</div>
                         <input class="property-input-color" [colorPicker]="selectedObject.fill"  (colorPickerChange)="changeProperty('fill', $event)" [cpPosition]="'left'" [style.background]="selectedObject.fill"/>
                     </div>
                     <div class="property">
-                        <div class="property-name">Kolor obramowania</div>
+                        <div class="property-name">Border</div>
                         <input class="property-input-color" [colorPicker]="selectedObject.stroke"  (colorPickerChange)="changeProperty('stroke', $event)" [cpPosition]="'left'" [style.background]="selectedObject.stroke"/>
-                    </div>
-                    <div class="property">
-                        <div class="property-name">Szerokość obramowania</div>
-                        <input class="property-input" [ngModel]="selectedObject.strokeWidth | number:'1.3-3'" (ngModelChange)="changeProperty('strokeWidth', $event)">
                     </div>
                 </div>
             </div>
     
             <div *ngSwitchCase="'line'">
                 <div class="property-group">
-                    <div class="property">
-                        <div class="property-name">Nazwa</div>
-                        <input class="property-input" type="text" [ngModel]="selectedObject.id" (ngModelChange)="changeProperty('id', $event)">
-                    </div>
+                    <div class="property-group-name">Position</div>
+                    <hr class="solid property-group-name-divider">
+
                     <div class="property">
                         <div class="property-name">X</div>
                         <input class="property-input" [ngModel]="selectedObject.left | number:'1.3-3'" (ngModelChange)="changeProperty('left', $event)">
@@ -144,15 +168,29 @@
                         <input class="property-input" [ngModel]="selectedObject.top | number:'1.3-3'" (ngModelChange)="changeProperty('top', $event)">
                     </div>
                     <div class="property">
-                        <div class="property-name">Kąt</div>
+                        <div class="property-name">Angle</div>
                         <input class="property-input" [ngModel]="selectedObject.angle | number:'1.3-3'" (ngModelChange)="changeProperty('angle', $event)">
                     </div>
+
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Dimensions</div>
+                    <hr class="solid property-group-name-divider">
+
                     <div class="property">
-                        <div class="property-name">Grubość</div>
+                        <div class="property-name">Stroke</div>
                         <input class="property-input" [ngModel]="selectedObject.strokeWidth | number:'1.3-3'" (ngModelChange)="changeProperty('strokeWidth', $event)">
                     </div>
+
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Colors</div>
+                    <hr class="solid property-group-name-divider">
+
                     <div class="property">
-                        <div class="property-name">Kolor</div>
+                        <div class="property-name">Background</div>
                         <input class="property-input-color" [colorPicker]="selectedObject.stroke"  (colorPickerChange)="changeProperty('stroke', $event)" [cpPosition]="'left'" [style.background]="selectedObject.stroke"/>
                     </div>
                 </div>
@@ -160,10 +198,9 @@
     
             <div *ngSwitchCase="'textbox'">
                 <div class="property-group">
-                    <div class="property">
-                        <div class="property-name">Nazwa</div>
-                        <input class="property-input" type="text" [ngModel]="selectedObject.id" (ngModelChange)="changeProperty('id', $event)">
-                    </div>
+                    <div class="property-group-name">Position</div>
+                    <hr class="solid property-group-name-divider">
+
                     <div class="property">
                         <div class="property-name">X</div>
                         <input class="property-input" [ngModel]="selectedObject.left | number:'1.3-3'" (ngModelChange)="changeProperty('left', $event)">
@@ -173,25 +210,37 @@
                         <input class="property-input" [ngModel]="selectedObject.top | number:'1.3-3'" (ngModelChange)="changeProperty('top', $event)">
                     </div>
                     <div class="property">
-                        <div class="property-name">Kąt</div>
+                        <div class="property-name">Angle</div>
                         <input class="property-input" [ngModel]="selectedObject.angle | number:'1.3-3'" (ngModelChange)="changeProperty('angle', $event)">
                     </div>
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Font</div>
+                    <hr class="solid property-group-name-divider">
+
                     <div class="property">
-                        <div class="property-name">Typ czcionki</div>
+                        <div class="property-name">Type</div>
                         <select class="property-select" (ngModelChange)="changeProperty('fontFamily', $event)" [(ngModel)]="selectedObject.fontFamily">
                             <option *ngFor="let font of fonts" (ngModel)="font">{{font}}</option>
                         </select>
                     </div>
                     <div class="property">
-                        <div class="property-name">Wielkość czcionki</div>
+                        <div class="property-name">Size</div>
                         <input class="property-input" type="number" [ngModel]="selectedObject.fontSize" (ngModelChange)="changeProperty('fontSize', $event)">
                     </div>
+                </div>
+
+                <div class="property-group">
+                    <div class="property-group-name">Colors</div>
+                    <hr class="solid property-group-name-divider">
+                
                     <div class="property">
-                        <div class="property-name">Kolor czcionki</div>
+                        <div class="property-name">Font</div>
                         <input class="property-input-color" [colorPicker]="selectedObject.fill"  (colorPickerChange)="changeProperty('fill', $event)" [cpPosition]="'left'" [style.background]="selectedObject.fill"/>
                     </div>
                     <div class="property">
-                        <div class="property-name">Kolor obramowania</div>
+                        <div class="property-name">Border</div>
                         <input class="property-input-color" [colorPicker]="selectedObject.stroke"  (colorPickerChange)="changeProperty('stroke', $event)" [cpPosition]="'left'" [style.background]="selectedObject.stroke"/>
                     </div>
                 </div>

@@ -91,7 +91,8 @@ export class EditorCanvasComponent implements OnInit {
 
   private scaleObject(object): void {
     const target = object.target;
-    if (!target || target.type !== 'rect') {
+    const allowedType = target.type === 'rect' || target.type === 'triangle' || target.type === 'line';
+    if (!target || !allowedType) {
         return;
     }
     const sX = target.scaleX;
