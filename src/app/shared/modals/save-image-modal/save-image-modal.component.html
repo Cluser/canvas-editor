@@ -5,9 +5,9 @@
     </button>
 </div>
 <div class="modal-body">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col">Do you realy want to save your image?</div>
-    </div>
+    </div> -->
     <form (ngSubmit)="saveImage()" #addTodoElementForm="ngForm">
         <label>Name</label>
         <input id="todo-title-input" name="imgName" class="form-control" required [(ngModel)]="imageName" #imgName="ngModel">
@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" type="submit" [disabled]="!imgName.valid">Save image</button>
+        <button class="submit" type="submit" [disabled]="!imgName.valid">Save image</button>
     </form>
 
 </div>
