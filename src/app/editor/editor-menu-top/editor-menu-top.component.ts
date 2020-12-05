@@ -21,20 +21,20 @@ export class EditorMenuTopComponent implements OnInit {
 
   public openNewImageModal(): void {
     this.modalRef = this.modalService.show(NewImageModalComponent);
-    this.modalRef.content.newImage.subscribe(() => this.clearCanvas());
+    this.modalRef.content.onNewImage.subscribe(() => this.clearCanvas());
   }
 
   public openSaveImageModal(): void {
     this.modalRef = this.modalService.show(SaveImageModalComponent);
-    this.modalRef.content.saveImage.subscribe(() => this.saveCanvas());
+    this.modalRef.content.onSaveImage.subscribe((name) => this.saveCanvas(name));
   }
 
   public clearCanvas(): void {
     this.editorSharedAction.clearCanvas.next();
   }
 
-  public saveCanvas(): void {
-    this.editorSharedAction.saveCanvas.next();
+  public saveCanvas(name: string): void {
+    this.editorSharedAction.saveCanvas.next(name);
   }
 
 }

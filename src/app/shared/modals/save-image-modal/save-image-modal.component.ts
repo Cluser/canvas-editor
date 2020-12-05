@@ -9,18 +9,16 @@ import { Subject } from 'rxjs';
 })
 export class SaveImageModalComponent implements OnInit {
 
-  public saveImage = new Subject<void>();
+  public onSaveImage = new Subject<string>();
+  public imageName: string;
 
   constructor(public modalRef: BsModalRef) {}
 
   ngOnInit(): void { }
 
-  public onConfirm(): void {
-    this.saveImage.next();
+  public saveImage(): void {
+    this.onSaveImage.next(this.imageName);
     this.modalRef.hide();
   }
 
-  public onCancel(): void {
-    this.modalRef.hide();
-  }
 }

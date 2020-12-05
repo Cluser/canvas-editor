@@ -60,7 +60,7 @@ export class EditorCanvasComponent implements OnInit {
     this.editorSharedActionService.addText.subscribe(() => this.addText());
     this.editorSharedActionService.renderCanvas.subscribe(() => this.renderCanvas());
     this.editorSharedActionService.clearCanvas.subscribe(() => this.clearCanvas());
-    this.editorSharedActionService.saveCanvas.subscribe(() => this.saveCanvas());
+    this.editorSharedActionService.saveCanvas.subscribe((name) => this.saveCanvas(name));
   }
 
   private initCustomFunctions(): void {
@@ -136,6 +136,8 @@ export class EditorCanvasComponent implements OnInit {
       noScaleCache: false
     });
     this.addToCanvas(obj);
+
+    console.log(this.canvas.getObjects());
   }
 
   public addTriangle(): void {
@@ -264,11 +266,11 @@ export class EditorCanvasComponent implements OnInit {
     this.canvas.requestRenderAll();
   }
 
-  public saveCanvas(): void {
+  public saveCanvas(name: string): void {
     const vpt = this.canvas.viewportTransform;
     this.canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
     this.canvas.toCanvasElement().toBlob((blob) => {
-      saveAs(blob, 'canvas.jpg');
+      saveAs(blob, name + '.jpg');
       this.canvas.viewportTransform = vpt;
     });
   }

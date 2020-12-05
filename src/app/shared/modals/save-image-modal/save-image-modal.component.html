@@ -8,9 +8,17 @@
     <div class="row">
         <div class="col">Do you realy want to save your image?</div>
     </div>
+    <form (ngSubmit)="saveImage()" #addTodoElementForm="ngForm">
+        <label>Name</label>
+        <input id="todo-title-input" name="imgName" class="form-control" required [(ngModel)]="imageName" #imgName="ngModel">
+        <div *ngIf="imgName.invalid && (imgName.dirty || imgName.touched)" class="alert alert-danger">
+          <div *ngIf="imgName.errors.required">
+            Name is required.
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!imgName.valid">Save image</button>
+    </form>
 
 </div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="onConfirm()">Yes</button>
-    <button type="button" class="btn btn-primary" (click)="onCancel()">No</button>        
-</div>
+

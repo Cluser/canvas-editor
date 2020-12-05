@@ -10,14 +10,14 @@ import { Subject } from 'rxjs';
 })
 export class NewImageModalComponent implements OnInit {
 
-  public newImage = new Subject<void>();
+  public onNewImage = new Subject<void>();
 
   constructor(public modalRef: BsModalRef) {}
 
   ngOnInit(): void { }
 
   public onConfirm(): void {
-    this.newImage.next();
+    this.onNewImage.next();
     this.modalRef.hide();
   }
 
